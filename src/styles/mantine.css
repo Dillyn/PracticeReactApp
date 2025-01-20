@@ -10,18 +10,18 @@
 .second-inner-container {
   min-width: 50%;
   max-width: 50%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px 0;
 }
 
 .first-second-inner-container {
-    
+    min-height: 50%;
 } 
 
 .second-second-inner-container {
     flex-grow:1;
-    max-height: 50%;
+    
     
 }
