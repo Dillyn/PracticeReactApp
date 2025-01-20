@@ -253,16 +253,18 @@ const Home: React.FC<HomeProps> = ({ setMain }) => {
           </div>
         </Card>
         <Card className="second-second-inner-container">
+          <Title size={"16px"}>Work Experience:</Title>
           <Text>
-            <Title size={"16px"}>Work Experience:</Title>
             As a freelance developer, I’ve delivered custom web and mobile
             applications, specializing in both frontend and backend development.
             I’ve worked on various projects, including e-commerce platforms and
             content management systems, using technologies like React, Node.js,
             and PHP to create responsive, user-friendly solutions.
-            <Title size={"16px"} style={{ marginTop: "10px" }}>
-              Education:
-            </Title>
+          </Text>
+          <Title size={"16px"} style={{ marginTop: "10px" }}>
+            Education:
+          </Title>
+          <Text>
             I’m currently studying Application Development at Cape Peninsula
             University, where I’ve gained a solid foundation in programming,
             software development, and building efficient applications.
