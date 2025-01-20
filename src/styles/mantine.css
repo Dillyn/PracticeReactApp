@@ -1,0 +1,27 @@
+.outer-container {
+  width: calc(100vw - 425px);
+  height: 1000px;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.075);
+  gap: 0 20px;
+}
+
+.second-inner-container {
+  min-width: 50%;
+  max-width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
+
+.first-second-inner-container {
+    
+} 
+
+.second-second-inner-container {
+    flex-grow:1;
+    max-height: 50%;
+    
+}
