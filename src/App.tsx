@@ -18,7 +18,6 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import Sidebar from "./components/Sidebar";
 import { useState } from "react";
-import Profile from "./routes/Profile";
 import Settings from "./routes/Settings";
 import { BarChart } from "@mantine/charts";
 import {
@@ -28,11 +27,18 @@ import {
   IconMessageDots,
 } from "@tabler/icons-react";
 import Home from "./routes/Home";
+import Details from "./routes/Details";
 
 function App() {
   const [opened, { toggle }] = useDisclosure();
 
   const [main, setMain] = useState("/");
+
+  const routeComponents = {
+    "/": <Home setMain={setMain} />,
+    "/details": <Details setMain={setMain} />,
+    "/settings": <Settings />,
+  };
   return (
     <AppShell
       header={{ height: 60 }}
@@ -53,8 +59,8 @@ function App() {
       <AppShell.Main>
         {main === "/" ? (
           <Home setMain={setMain} />
-        ) : main === "/profile" ? (
-          <Profile />
+        ) : main === "/details" ? (
+          <Details setMain={setMain} />
         ) : (
           <Settings />
         )}

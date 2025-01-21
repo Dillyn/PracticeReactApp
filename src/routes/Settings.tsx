@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router'
 const Settings = () => { 
   return (
     <div>
-      Profile
+      Settings
     
     </div>
   )
