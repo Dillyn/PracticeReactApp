@@ -1,21 +1,28 @@
 import React from "react";
-import { useNavigate } from "react-router";
 import { AppShell } from "@mantine/core";
 import { NavLink } from "@mantine/core";
-import { IconHome2 } from "@tabler/icons-react";
+import {
+  IconHome2,
+  IconInfoCircle,
+  IconInfoCircleFilled,
+  IconSettings,
+} from "@tabler/icons-react";
+
 
 const links = [
   {
-    icon: <IconHome2 size={16} stroke={1.5} />,
-    title: "home",
+    icon: <IconHome2 size={32} stroke={1.5} />,
+    title: "Home",
     route: "/",
   },
   {
-    title: "profile",
-    route: "/profile",
+    icon: <IconInfoCircle size={32} stroke={1.5} />,
+    title: "Details",
+    route: "/details",
   },
   {
-    title: "settings",
+    icon: <IconSettings size={32} stroke={1.5}/>,
+    title: "Settings",
     route: "/settings",
   },
 ];
@@ -24,7 +31,6 @@ type SidebarProps = {
   main: string;
 };
 const Sidebar: React.FC<SidebarProps> = ({ setMain, main }) => {
-  let navigate = useNavigate();
   return (
     <AppShell.Navbar p="md">
       {links.map((link) => {
