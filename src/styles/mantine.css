@@ -1,7 +1,7 @@
 /* main container */
 .outer-container {
-  width: calc(100vw - 425px);
-  height: 1000px;
+  
+  height: 100%;
   display: flex;
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.075);
@@ -19,7 +19,7 @@
 }
 
 .first-second-inner-container {
-  min-height: 50%;
+ 
 }
 
 .second-second-inner-container {
@@ -28,8 +28,8 @@
 
 /* Home page */
 .main-container {
-  height: 60vh;
-  width: 75vw;
+  height: 60%;
+  width: 75%;
   background-color: rgba(241, 243, 245, 0.998);
 }
 
@@ -47,27 +47,14 @@
 
 .outline-text {
   color: transparent;
-  -webkit-text-stroke: px rgb(0, 0, 0);
+  -webkit-text-stroke: px rgb(243, 243, 243);
 }
 
 /* Hobbies page */
 
-.hobbies-main
-{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  background-Color: var(--mantine-color-blue-0)
-}
-.hobbies-main-half1
-{
-  background-color:"yellow"; 
-  height:100%;
-  width:50%;
-  background-image:'url(https://via.placeholder.com/150)';
-}
 
-.m_e615b15f.mantine-Card-root.m_1b7284a3.mantine-Paper-root {
-  padding: 0; 
+
+/* remove padding from Appshell.main */
+ .m_e615b15f.mantine-Card-root.m_1b7284a3.mantine-Paper-root {
+   
 }

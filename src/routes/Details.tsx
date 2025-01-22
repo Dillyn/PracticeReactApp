@@ -186,7 +186,7 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
             size="lg"
             radius="xl"
           >
-            View full profile
+            Contact Me
           </Button>
         </div>
       </Card>
@@ -203,7 +203,7 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
             <BarChart
               yAxisLabel="Years"
               xAxisLabel="Languages"
-              h={300}
+              h={250}
               data={data}
               dataKey="language" // X-axis labels
               series={[{ name: "years", color: "blue" }]}

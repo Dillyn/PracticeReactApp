@@ -16,29 +16,12 @@ import { useNavigate } from "react-router";
 
 const Home = ({ setMain }: { setMain: (main: string) => void }) => {
   return (
-    <div
-      style={{
-        height: "calc(100vh - 40px)",
-        width: "calc(100vw - 325px)",
-        backgroundColor: "rgba(75, 136, 197, 0.998)",
-        background: "linear-gradient(125deg,lightblue ,white )",
-      }}
-    >
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Container w={"100%"} h={"100%"} color="yellow">
+   
+        
           <Card
             shadow="1px 0px 27px 0px rgba(0,0,0,0.2)"
             p="xl"
             radius="xl"
-            className="main-container"
           >
             <div className="main-container-column">
               <div
@@ -47,26 +30,26 @@ const Home = ({ setMain }: { setMain: (main: string) => void }) => {
                   paddingLeft: "50px",
                 }}
               >
-                <Text className="" size="68px" fw={900} c={"black"}>
+                <Text size="xl" fw={900} c={"black"}>
                   I Build Custom
                 </Text>
                 <Text
                   h="64px"
-                  size="68px"
+                  size="xl"
                   fw={900}
                   variant="gradient"
                   gradient={{ from: "black", to: "black", deg: 360 }}
                 >
                   Web Solutions
                 </Text>
-                <Text h="64px" size="68px" fw={900} c={"black"}>
+                <Text h="64px" size="xl" fw={900} c={"black"}>
                   That Help Your
                 </Text>
 
                 <Text
                   span
                   h="70px"
-                  size="80px"
+                  size="xl"
                   fw={900}
                   variant="gradient"
                   gradient={{ from: "blue", to: "indigo", deg: 90 }}
@@ -75,7 +58,7 @@ const Home = ({ setMain }: { setMain: (main: string) => void }) => {
                 </Text>
                 <Text
                   c={"black"}
-                  size="16px"
+                  size="xl"
                   fw={450}
                   style={{ paddingTop: "15px" }}
                 >
@@ -84,11 +67,11 @@ const Home = ({ setMain }: { setMain: (main: string) => void }) => {
                 </Text>
 
                 <Button
-                  w={"500px"}
+                  w={"100%"}
                   variant="filled"
                   rightSection={<IconArrowRight size={32} />}
                   onClick={() => setMain("/details")}
-                  size="xl"
+                  size="lg"
                   radius="md"
                   style={{ marginTop: "25px" }}
                 >
@@ -106,9 +89,6 @@ const Home = ({ setMain }: { setMain: (main: string) => void }) => {
               </div>
             </div>
           </Card>
-        </Container>
-      </div>
-    </div>
   );
 };
 

@@ -11,7 +11,11 @@ import "./styles/mantine.css";
 import "@mantine/charts/styles.css";
 import { IconHome2 } from "@tabler/icons-react";
 
-const theme = createTheme({});
+const theme = createTheme({
+  fontSizes:{
+    xl:"48px"
+  }
+});
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider theme={theme}>

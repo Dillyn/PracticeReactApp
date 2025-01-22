@@ -36,12 +36,6 @@ function App() {
 
   const [main, setMain] = useState("/");
 
-  const routeComponents = {
-    "/": <Home setMain={setMain} />,
-    "/details": <Details setMain={setMain} />,
-    "/hobbies": <Hobbies setMain={setMain} />,
-    "/contact": <ContactMe setMain={setMain} />,
-  };
   return (
     <AppShell
       header={{ height: 60 }}
@@ -59,7 +53,7 @@ function App() {
 
       <Sidebar setMain={setMain} main={main} />
 
-      <AppShell.Main>
+      <AppShell.Main style={{width:"100vw", height:"100%", display:"flex", justifyContent:"center", alignItems:"center", background: "linear-gradient(lightblue ,white )"}}>
         {main === "/" ? (
           <Home setMain={setMain} />
         ) : main === "/details" ? (
@@ -67,13 +61,9 @@ function App() {
         ) : main ==="/hobbies" ? (
           <Hobbies setMain={setMain}/>
         ): (
-          <ContactMe setMain={function (main: string): void {
-                  throw new Error("Function not implemented.");
-                } } />
+          <ContactMe />
       )}
-        <div
-          style={{ background: "url(/background.svg)", opacity: "40%" }}
-        ></div>
+        
       </AppShell.Main>
     </AppShell>
   );
