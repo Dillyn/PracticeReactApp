@@ -35,7 +35,7 @@ const data = [
   { language: "Go", years: 1 },
   { language: "Ruby", years: 1 },
 ];
-const groceries = [
+const accordionData = [
   {
     emoji: "📚",
     value: "Education",
@@ -234,7 +234,7 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
 
           <Divider style={{ marginTop: "25px" }} />
           <Accordion style={{ overflowY: "scroll" }}>
-            {groceries.map((item) => (
+            {accordionData.map((item) => (
               <Accordion.Item key={item.value} value={item.value}>
                 <Accordion.Control icon={item.emoji}>
                   {item.value}

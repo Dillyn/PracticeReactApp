@@ -22,8 +22,13 @@ const links = [
   },
   {
     icon: <IconSettings size={32} stroke={1.5}/>,
-    title: "Settings",
-    route: "/settings",
+    title: "Hobbies",
+    route: "/hobbies",
+  },
+  {
+    icon: <IconSettings size={32} stroke={1.5}/>,
+    title: "Contact Me",
+    route: "/contact",
   },
 ];
 type SidebarProps = {
@@ -38,7 +43,6 @@ const Sidebar: React.FC<SidebarProps> = ({ setMain, main }) => {
           <NavLink
             leftSection={link.icon}
             active={main === link.route}
-            href="#required-for-focus"
             onClick={() => setMain(link.route)}
             label={link.title}
           />

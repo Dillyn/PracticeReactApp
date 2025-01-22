@@ -49,3 +49,20 @@
   color: transparent;
   -webkit-text-stroke: px rgb(0, 0, 0);
 }
+
+/* Hobbies page */
+
+.hobbies-main
+{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.hobbies-main-half1
+{
+  background-color:"yellow"; 
+  height:100%;
+  width:50%;
+  background-image:'url(https://via.placeholder.com/150)';
+}
