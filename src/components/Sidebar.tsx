@@ -63,7 +63,7 @@ const links = [
         Download My CV
       </Anchor>
     ),
-    route: "/contact",
+    route: "/download",
   },
 ];
 type SidebarProps = {
@@ -73,10 +73,11 @@ type SidebarProps = {
 const Sidebar: React.FC<SidebarProps> = ({ setMain, main }) => {
   return (
     <AppShell.Navbar p="md">
-      {links.map((link) => {
-        const isDownloadLink = link.title === "Download My CV";
+      {links.map((link, key) => {
+        const isDownloadLink = link.route === "/download";
         return (
           <NavLink
+          key={key}
             leftSection={link.icon}
             active={main === link.route && !isDownloadLink} // Prevent marking 'Download My CV' link as active
             onClick={() => {

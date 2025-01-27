@@ -6,10 +6,21 @@
   padding: 20px;
   /* Distribute space between the two sections */
 }
-.hobbies-right,
-.hobbies-left {
+
+.hobbies-content
+{
   width: 100%; /* Ensure they each take up slightly less than half to leave space between */
   display: flex;
+  
+}
+
+.hobbies-right{
+  
+  flex-direction: row-reverse;
+}
+
+.hobbies-left {
+ 
   flex-direction: row;
 }
 

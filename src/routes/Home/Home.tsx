@@ -1,6 +1,6 @@
 import { Button, Card, Text, Image } from "@mantine/core";
 import { IconArrowRight, IconPhoto } from "@tabler/icons-react";
-import "./HomeStyle.css"; // Import the CSS file
+import styles from "./HomeStyle.module.css"; // Import the CSS file
 
 const Home = ({ setMain }: { setMain: (main: string) => void }) => {
   return (
@@ -10,15 +10,15 @@ const Home = ({ setMain }: { setMain: (main: string) => void }) => {
       p="xl"
       radius="xl"
     >
-      <div className="main-container-column">
-        <div className="text-content">
-          <Text className="main-text">
+      <div className={styles.mainContainerColumn}>
+        <div className={styles.textContent}>
+          <Text className={styles.mainText}>
             I Build Custom <br /> Web Solutions That Help Your
           </Text>
 
-          <Text className="highlighted-text">Business Grow</Text>
+          <Text className={styles.highlightedText}>Business Grow</Text>
 
-          <Text className="description-text">
+          <Text className={styles.descriptionText}>
             I help you increase conversion and performance in every possible
             way.
           </Text>
@@ -30,7 +30,7 @@ const Home = ({ setMain }: { setMain: (main: string) => void }) => {
             onClick={() => setMain("/details")}
             size="lg"
             radius="md"
-            className="view-details-button"
+            className={styles.viewDetailsButton}
           >
             View Details Page
           </Button>

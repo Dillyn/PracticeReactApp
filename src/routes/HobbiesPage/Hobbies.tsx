@@ -13,29 +13,29 @@ import React from "react";
 //import { Button } from '../components/Button'
 import { useNavigate } from "react-router";
 import "./HobbiesStyle.css";
-import { hobby1, hobby2 } from "./data";
+import { hobbies, hobby1, hobby2 } from "./data";
 
 const Hobbies = ({ setMain }: { setMain: (main: string) => void }) => {
   return (
     <Card className="hobbies-card">
-      <div className="hobbies-left">
-        <div className="image-container">
-          <Image src="/online-gaming.jpg" />
-        </div>
-        <div className="text-container">
-          <Title>My Online Gaming Hobby</Title>
-          <Text size="md">{hobby1}</Text>
-        </div>
-      </div>
-      <div className="hobbies-right">
-        <div className="text-container">
-          <Title>My Hiking Journey</Title>
-          <Text size="md">{hobby2}</Text>
-        </div>
-        <div className="image-container">
-          <Image src="/hike.jpg" />
-        </div>
-      </div>
+      {hobbies.map((hobby, key) => {
+        const isEven = Boolean(hobbies.indexOf(hobby) % 2);
+        console.log("isEven", isEven);
+        return (
+          <div
+            key={key}
+            className={`hobbies-content ${isEven ? "hobbies-left" : "hobbies-right"}`}
+          >
+            <div className="image-container">
+              <Image src={hobby.image} />
+            </div>
+            <div className="text-container">
+              <Title>{hobby.title}</Title>
+              <Text size="md">{hobby.content}</Text>
+            </div>
+          </div>
+        );
+      })}
     </Card>
   );
 };

@@ -1,0 +1,44 @@
+.home-card {
+  background-color: #ffffff; /* White background for card */
+}
+
+.mainContainerColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textContent {
+  padding-left: 50px;
+}
+
+.mainText {
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  color: black !important;
+  line-height: 52px!important;
+}
+
+.highlightedText {
+  font-size: 4rem !important;
+ font-weight:900 !important;
+  color: rgb(27, 96, 226) !important;
+}
+
+.descriptionText {
+  color: black !important;
+  font-size: 3rem ;
+  font-weight: 450 !important;
+}
+
+.viewDetailsButton {
+  margin-top: 25px;
+}
+
+@media only screen and (max-width:900px){
+.descriptionText{
+  font-size: 1rem;
+}
+
+}
