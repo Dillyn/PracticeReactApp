@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "@mantine/charts": "^7.16.1",
     "@mantine/core": "^7.16.0",
     "@mantine/form": "^7.16.1",

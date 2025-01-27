@@ -27,6 +27,7 @@ import {
   IconMessageDots,
 } from "@tabler/icons-react";
 
+// Sample data for programming language experience (years)
 const data = [
   { language: "Python", years: 5 },
   { language: "JavaScript", years: 4 },
@@ -35,6 +36,8 @@ const data = [
   { language: "Go", years: 1 },
   { language: "Ruby", years: 1 },
 ];
+
+// Data for accordion items (timeline for education and work experience)
 const accordionData = [
   {
     emoji: "📚",
@@ -110,18 +113,22 @@ const accordionData = [
             Junior Developer
           </Text>
           <Text size="xs" mt={4}>
-            2026 -
+            2026 - present
           </Text>
         </Timeline.Item>
       </Timeline>
     ),
   },
 ];
+
+// The Details component accepts a prop "setMain" for navigation
 type DetailsProps = {
   setMain: (main: string) => void;
 };
+
 const Details: React.FC<DetailsProps> = ({ setMain }) => {
   return (
+    // Outer Card container with shadow and border
     <Card shadow="sm" radius="md" className="outer-container">
       <Card
         shadow="sm"
@@ -132,10 +139,11 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
           width: "600px",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: "space-between", // Distribute space evenly between child elements
         }}
       >
         <div>
+          {/* Profile image */}
           <Card.Section>
             <Image src="/profile.jpg" height={450} alt="profile picture" />
           </Card.Section>
@@ -147,6 +155,7 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
             </Badge>
           </Group>
 
+          {/* Contact Info */}
           <div
             style={{
               display: "flex",
@@ -163,25 +172,26 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
             <Text>dillyn32lakey23@gmail.com</Text>
           </Group>
         </div>
+
+        {/* Short description about the profile */}
         <div>
           <Blockquote
             style={{ height: "90%", marginTop: "10px", marginBottom: "10px" }}
           >
-            {/* <Paper shadow="md" p="xl" style={{ marginBottom: "15px" }}>A */}
             A passionate developer skilled in building sleek UIs with React.js
             and scalable backends with Node.js. Expert in JavaScript/TypeScript,
             focused on clean code and solving problems efficiently. A team
             player who thrives on challenges and keeps up with the latest tech
             trends.
-            {/* </Paper> */}
           </Blockquote>
         </div>
 
+        {/* Contact button for reaching out */}
         <div
           style={{ width: "100%", display: "flex", justifyContent: "center" }}
         >
           <Button
-            onClick={() => setMain("/profile")}
+            onClick={() => setMain("/contact")} // Navigates to the profile page
             variant="outline"
             size="lg"
             radius="xl"
@@ -190,6 +200,8 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
           </Button>
         </div>
       </Card>
+
+      {/* Section for programming language experience chart */}
       <div className="second-inner-container">
         <Card className="first-second-inner-container">
           <div
@@ -205,15 +217,17 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
               xAxisLabel="Languages"
               h={250}
               data={data}
-              dataKey="language" // X-axis labels
+              dataKey="language"
               series={[{ name: "years", color: "blue" }]}
               styles={{
-                axis: { fontSize: "20px" }, // Axis labels
+                axis: { fontSize: "20px" },
                 tooltip: { fontSize: "12px" },
               }}
             />
           </div>
         </Card>
+
+        {/* Section for work experience and education */}
         <Card className="second-second-inner-container">
           <Title size={"16px"}>Work Experience:</Title>
           <Text>
@@ -223,6 +237,7 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
             content management systems, using technologies like React, Node.js,
             and PHP to create responsive, user-friendly solutions.
           </Text>
+
           <Title size={"16px"} style={{ marginTop: "10px" }}>
             Education:
           </Title>
@@ -233,13 +248,15 @@ const Details: React.FC<DetailsProps> = ({ setMain }) => {
           </Text>
 
           <Divider style={{ marginTop: "25px" }} />
+
+          {/* Accordion component for detailed education and work experience timeline */}
           <Accordion style={{ overflowY: "scroll" }}>
             {accordionData.map((item) => (
               <Accordion.Item key={item.value} value={item.value}>
                 <Accordion.Control icon={item.emoji}>
                   {item.value}
                 </Accordion.Control>
-                <Accordion.Panel>{item.description}</Accordion.Panel>
+                <Accordion.Panel> {item.description}</Accordion.Panel>
               </Accordion.Item>
             ))}
           </Accordion>
