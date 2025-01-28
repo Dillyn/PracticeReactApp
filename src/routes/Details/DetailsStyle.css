@@ -1,0 +1,79 @@
+/* DetailsStyle.css */
+
+/* Outer container for the card */
+.outer-container {
+    /* No specific styles defined here, can leave it empty or add border, shadow */
+  }
+  
+  /* Card containing profile and information */
+  .first-second-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Second card container for work experience and education */
+  .second-second-inner-container {
+    padding: 20px;
+  }
+  
+  /* Container for profile information */
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Profile image styles */
+  .profile-image {
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Profile section titles and content */
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .profile-contact-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Blockquote style */
+  .profile-description {
+    height: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Button for contact me section */
+  .contact-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Title styles for work and education */
+  .title-section {
+    margin-top: 10px;
+  }
+  
+  /* Accordion item styles */
+  .accordion-item {
+    overflow-y: scroll;
+  }
+  
+  /* Divider between sections */
+  .divider-section {
+    margin-top: 25px;
+  }
