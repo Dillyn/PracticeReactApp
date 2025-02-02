@@ -13,12 +13,21 @@ import {
   TextInput,
   Textarea,
 } from "@mantine/core";
-import { hobbies as initialHobbies } from "./data"; // Import existing hobbies
+// import { hobbies as initialHobbies } from "./data"; // Import existing hobbies
 import "./HobbiesStyle.css";
+import { QueryClient, useQueries, useQuery } from "@tanstack/react-query";
+import {getTestHobby } from "./queries/query";
 
 const Hobbies = ({ setMain }: { setMain: (main: string) => void }) => {
   // State to manage hobbies
-  const [hobbies, setHobbies] = useState(initialHobbies);
+
+  const { data: hobbies, error } = useQuery(
+    {
+    queryKey: ["testHobby"],
+    queryFn: getTestHobby,
+  },
+);
+
 
   // Hardcoded new hobby
   const newHobby = {
@@ -29,24 +38,42 @@ const Hobbies = ({ setMain }: { setMain: (main: string) => void }) => {
   };
 
   // Add hardcoded new hobby to the list
-  const addHobby = () => {
-    setHobbies([...hobbies, newHobby]);
-  };
+  // const addHobby = () => {
+  //   setHobbies([...hobbies, newHobby]);
+  // };
 
   return (
     <div>
       {/* Button to add the hardcoded hobby */}
-      <Button onClick={addHobby} style={{ marginBottom: "20px" }}>
+      {/* <Button onClick={addHobby} style={{ marginBottom: "20px" }}>
         Add Photography Hobby
-      </Button>
+      </Button> */}
+      {/* {testHobby?.map((hobby,key) => {
+        return (
+          <>
+          <Text> {hobby.id}</Text>
+          <Text> {hobby.name}</Text>
+          <Text> {hobby.surname}</Text>
+           </>
+        )
+
+      })} */}
+      {/* <Button
+        style={{ marginBottom: "20px" }}
+        onClick={() => console.log(testHobby)}
+      >
+        Get all users
+      </Button> */}
 
       <Card className="hobbies-card">
-        {hobbies.map((hobby, key) => {
+        {hobbies?.map((hobby, key) => {
           const isEven = Boolean(!(hobbies.indexOf(hobby) % 2));
           return (
             <div
-              key={key}
-              className={`hobbies-content ${isEven ? "hobbies-left" : "hobbies-right"}`}
+              key={hobby.id}
+              className={`hobbies-content ${
+                isEven ? "hobbies-left" : "hobbies-right"
+              }`}
             >
               <div className="image-container">
                 <Image src={hobby.image} alt={hobby.title} />

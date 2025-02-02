@@ -10,19 +10,20 @@ import { createTheme, MantineProvider } from "@mantine/core";
 import "./styles/mantine.css";
 import "@mantine/charts/styles.css";
 import { IconHome2 } from "@tabler/icons-react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const theme = createTheme({
- 
-
-});
+const queryClient = new QueryClient();
+const theme = createTheme({});
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <MantineProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-        </Routes>
-      </BrowserRouter>
-    </MantineProvider>
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+          </Routes>
+        </BrowserRouter>
+      </MantineProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

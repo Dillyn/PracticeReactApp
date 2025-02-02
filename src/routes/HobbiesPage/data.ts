@@ -11,7 +11,7 @@
 
 //interface for Hobby to ensure type safety and each object in the hobbies array has the expected properties
 interface Hobby {
-  title: string;
+  title: string;   //foldeer Data, models, 
   content: string;
   image: string;
 }
