@@ -26,8 +26,8 @@ import {
   IconGitCommit,
   IconMessageDots,
 } from "@tabler/icons-react";
-import { blockText, educationText, experienceText } from "./data";
-import { accordionData} from "./detailsData";
+import { blockText, educationText, experienceText } from "./Data/data";
+import { accordionData } from "./Data/detailsData";
 // Sample data for programming language experience (years)
 const data = [
   { language: "Python", years: 5 },
@@ -37,8 +37,6 @@ const data = [
   { language: "Go", years: 1 },
   { language: "Ruby", years: 1 },
 ];
-
-
 
 // The Details component accepts a prop "setMain" for navigation
 type DetailsProps = {
