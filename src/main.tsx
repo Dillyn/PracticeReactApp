@@ -7,6 +7,7 @@ import Profile from "./routes/Details/Details";
 import Settings from "./routes/HobbiesPage/Hobbies";
 import "@mantine/core/styles.css";
 import { createTheme, MantineProvider } from "@mantine/core";
+
 import "./styles/mantine.css";
 import "@mantine/charts/styles.css";
 import { IconHome2 } from "@tabler/icons-react";
@@ -18,11 +19,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />} />
-          </Routes>
-        </BrowserRouter>
+        <App />
       </MantineProvider>
     </QueryClientProvider>
   </React.StrictMode>
