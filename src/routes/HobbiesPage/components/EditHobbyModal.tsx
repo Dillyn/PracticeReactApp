@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getHobby } from "../queries/query";
+import { deleteHobby, getHobby, updateHobby } from "../queries/query";
 import { EditHobbyModalProps } from "../Models/models";
 import {
   Button,
@@ -13,20 +13,23 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
+import { useEffect, useRef } from "react";
 
 export const EditHobbyModal: React.FC<EditHobbyModalProps> = ({
   id,
-  opened,
-  close,
+  openModal,
+  closeModal,
+  refetchHobbies,
 }) => {
-  console.log(id);
-  
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
   const { data: hobby, error } = useQuery({
-    queryKey: ["getHobby" , id],
+    queryKey: ["getHobby", id],
     queryFn: () => getHobby(id),
     enabled: !!id,
   });
-  console.log(hobby?.title)
+  console.log(hobby);
+
   const form = useForm({
     initialValues: {
       title: "",
@@ -34,16 +37,44 @@ export const EditHobbyModal: React.FC<EditHobbyModalProps> = ({
       image: "",
     },
     validate: {
-      title: (value: string | undefined) => (value as string).trim().length < 2,
-      content: (value: string | undefined) =>
-        !/^\S+@\S+$/.test(value as string),
-      image: (value: string | undefined) => value?.trim().length === 0,
+      title: (value: string) =>
+        value?.trim() === "" ? "Title is required" : null,
+      content: (value: string) =>
+        value?.trim() === "" ? "Content is required" : null,
+      image: (value: string) =>
+        value?.trim() === "" ? "Image URL is required" : null,
     },
   });
+  useEffect(() => {
+    if (openModal) {
+      dialogRef.current?.showModal();
+      form.setValues({
+        title: hobby?.title,
+        content: hobby?.content,
+        image: hobby?.image,
+      });
+    } else {
+      form.reset();
+      dialogRef.current?.close();
+    }
+  }, [openModal, hobby]);
   return (
-    <Modal opened={opened} onClose={close} title="update Hobby">
+    <dialog ref={dialogRef} onCancel={closeModal}>
       <Card>
-        <form name="hi" onSubmit={form.onSubmit(() => {})}>
+        <form
+          name="submit"
+          onSubmit={form.onSubmit(async (data) => {
+            console.log("Form data:", data); // Check if form submission is triggered
+            try {
+              await updateHobby(id, data);
+              refetchHobbies(); // Pass form data here instead of `form.getValues()`
+              closeModal();
+            } catch (error) {
+              // Handle error (e.g., show a toast message or alert)
+              console.error("Failed to update hobby:", error);
+            }
+          })}
+        >
           <Title
             order={2}
             size="h1"
@@ -84,11 +115,25 @@ export const EditHobbyModal: React.FC<EditHobbyModalProps> = ({
 
           <Group justify="center" mt="xl">
             <Button type="submit" size="md">
-              Send message
+              Update Hobby
+            </Button>
+            <Button
+              onClick={async () => {
+                await deleteHobby(id);
+                refetchHobbies(); // Pass form data here instead of `form.getValues()`
+                closeModal();
+              }}
+              color="red"
+              size="md"
+            >
+              Delete
+            </Button>
+            <Button onClick={closeModal} variant="subtle" size="md">
+              Cancel
             </Button>
           </Group>
         </form>
       </Card>
-    </Modal>
+    </dialog>
   );
 };

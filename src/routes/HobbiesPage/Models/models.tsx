@@ -7,6 +7,7 @@ export type Hobby = {
 
 export type EditHobbyModalProps = {
   id: number| undefined;
-  opened: boolean;
-  close: () => void;
+  openModal: boolean;
+  closeModal: () => void;
+  refetchHobbies: () => void;
 };

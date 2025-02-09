@@ -63,12 +63,12 @@ function App() {
           background: "linear-gradient(lightblue ,white )",
         }}
       >
-        {main === "/" ? (
+        {main === "home" ? (
           <Home setMain={setMain} />
-        ) : main === "/details" ? (
+        ) : main === "details" ? (
           <Details setMain={setMain} />
-        ) : main === "/hobbies" ? (
-          <Hobbies setMain={setMain} />
+        ) : main === "hobbies" ? (
+          <Hobbies />
         ) : (
           <ContactMe />
         )}

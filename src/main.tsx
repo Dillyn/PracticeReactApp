@@ -19,7 +19,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme}>
-        <App />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" />
+            <Route path="/dashboard" element={<App />}/>
+          </Routes>
+        </BrowserRouter>
       </MantineProvider>
     </QueryClientProvider>
   </React.StrictMode>

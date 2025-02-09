@@ -8,16 +8,16 @@ import { useDisclosure } from "@mantine/hooks";
 import { EditHobbyModal } from "./components/EditHobbyModal";
 
 const Hobbies = () => {
-  const { data: hobbies, error } = useQuery({
+  const { data: hobbies, refetch: refetchHobbies } = useQuery({
     queryKey: ["getAllHobbies"],
     queryFn: getAllHobbies,
   });
 
   const [hobbyId, setHobbyId] = useState<number | undefined>(); // State to store the ID input
   const [submittedId, setSubmittedId] = useState<number | null>(null); // State to hold the final ID after submission
-  //const [opened, { open, close }] = useDisclosure(false);
+
   // Use the useQuery hook with enabled: false (no automatic fetching)
-  const [opened, setOpened] = useState(false);
+  const [modal, setModal] = useState(false);
   // Function to handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,12 +26,15 @@ const Hobbies = () => {
       // Close the modal
     }
   };
-
+  console.log(modal);
   const openModal = (id: number) => {
     setHobbyId(id);
-    open();
+    setModal(true);
   };
-
+  const closeModal = () => {
+    setHobbyId(undefined);
+    setModal(false);
+  };
   return (
     <div>
       <Card className="hobbies-card">
@@ -54,26 +57,19 @@ const Hobbies = () => {
                 </div>
               </div>
 
-              <Button onClick={() => openModal(hobby.id)}>Update {hobby.title}</Button>
+              <Button onClick={() => openModal(hobby.id)}>
+                Update {hobby.title}
+              </Button>
             </>
           );
         })}
       </Card>
-      {/* <EditHobbyModal id={hobbyId} close={close} opened={opened} /> */}
-    
-    <>
-      <Button onClick={() => setOpened(true)}>Open Modal</Button>
-
-      <Modal  zIndex={10000} w={700} h={700}
-        opened={opened}
-        onClose={() => setOpened(false)}
-        title="Sample Modal"
-      >
-        <div>
-          This is the content of the modal.
-        </div>
-      </Modal>
-    </>
+      <EditHobbyModal
+        id={hobbyId}
+        closeModal={closeModal}
+        openModal={modal}
+        refetchHobbies={refetchHobbies}
+      />
     </div>
   );
 };
