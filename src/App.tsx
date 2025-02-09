@@ -18,7 +18,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import Sidebar from "./components/Sidebar";
 import { useState } from "react";
-import Settings from "./routes/Settings";
+import Settings from "./routes/HobbiesPage/Hobbies";
 import { BarChart } from "@mantine/charts";
 import {
   IconGitBranch,
@@ -26,19 +26,16 @@ import {
   IconGitCommit,
   IconMessageDots,
 } from "@tabler/icons-react";
-import Home from "./routes/Home";
-import Details from "./routes/Details";
+import Home from "./routes/Home/Home";
+import Details from "./routes/Details/Details";
+import Hobbies from "./routes/HobbiesPage/Hobbies";
+import ContactMe from "./routes/ContactPage/ContactMe";
 
 function App() {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle }] = useDisclosure(false);
 
   const [main, setMain] = useState("/");
 
-  const routeComponents = {
-    "/": <Home setMain={setMain} />,
-    "/details": <Details setMain={setMain} />,
-    "/settings": <Settings />,
-  };
   return (
     <AppShell
       header={{ height: 60 }}
@@ -56,17 +53,25 @@ function App() {
 
       <Sidebar setMain={setMain} main={main} />
 
-      <AppShell.Main>
-        {main === "/" ? (
+      <AppShell.Main
+        style={{
+          width: "100vw",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "linear-gradient(lightblue ,white )",
+        }}
+      >
+        {main === "home" ? (
           <Home setMain={setMain} />
-        ) : main === "/details" ? (
+        ) : main === "details" ? (
           <Details setMain={setMain} />
+        ) : main === "hobbies" ? (
+          <Hobbies />
         ) : (
-          <Settings />
+          <ContactMe />
         )}
-        <div
-          style={{ background: "url(/background.svg)", opacity: "40%" }}
-        ></div>
       </AppShell.Main>
     </AppShell>
   );

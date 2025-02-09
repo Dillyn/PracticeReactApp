@@ -1,0 +1,45 @@
+.hobbies-card {
+  height: 500%;
+  background-color: rgb(243, 243, 243);
+  width: 70%; /* Make the container a little wider if needed */
+  display: flex;
+  flex-direction: column; /* Keep the flex direction as row to align items side by side */
+  padding: 20px;
+  /* Distribute space between the two sections */
+}
+
+.hobbies-content
+{
+  width: 100%; /* Ensure they each take up slightly less than half to leave space between */
+  display: flex;
+  
+}
+
+.hobbies-right{
+  
+  flex-direction: row-reverse;
+}
+
+.hobbies-left {
+ 
+  flex-direction: row;
+}
+
+.image-container {
+  height: 50%;
+  flex-grow: 1; /* Make the image container grow to fill available space */
+}
+
+.text-container {
+  min-width: 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically align text content */
+}
+
+h1,
+h2 {
+  margin-bottom: 10px; /* Add space between the title and text */
+}
