@@ -34,22 +34,22 @@ const links = [
   {
     icon: <IconHome2 size={32} stroke={1.5} />,
     title: "Home",
-    route: "/",
+    route: "home",
   },
   {
     icon: <IconInfoCircle size={32} stroke={1.5} />,
     title: "Details",
-    route: "/details",
+    route: "details",
   },
   {
     icon: <IconDeviceGamepad size={32} stroke={1.5} />,
     title: "Hobbies",
-    route: "/hobbies",
+    route: "hobbies",
   },
   {
     icon: <IconPhone size={32} stroke={1.5} />,
     title: "Contact Me",
-    route: "/contact",
+    route: "contact",
   },
   {
     icon: <IconDownload size={32} stroke={1.5} />,
@@ -63,7 +63,7 @@ const links = [
         Download My CV
       </Anchor>
     ),
-    route: "/download",
+    route: "download",
   },
 ];
 type SidebarProps = {
@@ -74,10 +74,10 @@ const Sidebar: React.FC<SidebarProps> = ({ setMain, main }) => {
   return (
     <AppShell.Navbar p="md">
       {links.map((link, key) => {
-        const isDownloadLink = link.route === "/download";
+        const isDownloadLink = link.route === "download";
         return (
           <NavLink
-          key={key}
+            key={key}
             leftSection={link.icon}
             active={main === link.route && !isDownloadLink} // Prevent marking 'Download My CV' link as active
             onClick={() => {

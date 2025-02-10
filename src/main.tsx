@@ -12,6 +12,7 @@ import "./styles/mantine.css";
 import "@mantine/charts/styles.css";
 import { IconHome2 } from "@tabler/icons-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Login from "./routes/LoginPage/Login";
 
 const queryClient = new QueryClient();
 const theme = createTheme({});
@@ -21,8 +22,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <MantineProvider theme={theme}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" />
-            <Route path="/dashboard" element={<App />}/>
+            <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<App />} />
           </Routes>
         </BrowserRouter>
       </MantineProvider>

@@ -120,7 +120,7 @@ export const EditHobbyModal: React.FC<EditHobbyModalProps> = ({
             <Button
               onClick={async () => {
                 await deleteHobby(id);
-                refetchHobbies(); // Pass form data here instead of `form.getValues()`
+                refetchHobbies(); // Refetches data to 
                 closeModal();
               }}
               color="red"
